@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="AllRingtonesViewModel"
+            type="com.example.naturing.viewmodels.AllRingtonesViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context = ".view.RingtonesScreenActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ringtoneSearch"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ringtone_search"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:padding="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--android:maxLength="13"-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ringtoneSearchBar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/homeFreeRingtonesTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Ücretsiz Sesler"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/ringtoneSearch"
+            app:layout_constraintHorizontal_bias="0.018"
+            app:layout_constraintStart_toStartOf="@+id/ringtoneSearch"
+            app:layout_constraintTop_toBottomOf="@+id/ringtoneSearch" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/anaSayfaUcretsizRecyclerView"
+            android:layout_width="383dp"
+            android:layout_height="150dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/homeFreeRingtonesTV"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/homeFreeRingtonesTV"
+            app:layout_constraintTop_toBottomOf="@+id/homeFreeRingtonesTV" />
+
+        <TextView
+            android:id="@+id/anaSayfaUcretsizlerTamListeTV"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            android:clickable="true"
+            android:focusable="true"
+            android:textStyle="bold"
+            android:onClick="@{() -> AllRingtonesViewModel.ucretsizSayfaClick()}"
+            android:text="Tüm ücretsiz sesleri görmek için tıklayın"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/anaSayfaUcretsizRecyclerView"
+            app:layout_constraintStart_toStartOf="@+id/anaSayfaUcretsizRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/anaSayfaUcretsizRecyclerView" />
+
+        <TextView
+            android:id="@+id/homePremiumRingtonesTV"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Ücretli Sesler"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/anaSayfaUcretsizlerTamListeTV"
+            app:layout_constraintStart_toStartOf="@+id/anaSayfaUcretsizlerTamListeTV"
+            app:layout_constraintTop_toBottomOf="@+id/anaSayfaUcretsizlerTamListeTV" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/anaSayfaUcretliRecyclerView"
+            android:layout_width="383dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="15dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="@+id/homePremiumRingtonesTV"
+            app:layout_constraintStart_toStartOf="@+id/homePremiumRingtonesTV"
+            app:layout_constraintTop_toBottomOf="@+id/homePremiumRingtonesTV" />
+
+        <TextView
+            android:id="@+id/anaSayfaUcretlilerTamListeTV"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:gravity="end"
+            android:textStyle="bold"
+            android:text="Tüm ücretli sesleri görmek için tıklayın"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/anaSayfaUcretliRecyclerView"
+            app:layout_constraintStart_toStartOf="@+id/anaSayfaUcretliRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/anaSayfaUcretliRecyclerView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

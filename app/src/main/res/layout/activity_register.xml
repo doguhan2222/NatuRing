@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+    <data >
+        <variable
+            name="RegisterViewModel"
+            type="com.example.naturing.viewmodels.RegisterViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.RegisterActivity">
+
+
+        <EditText
+            android:id="@+id/kayitIsim"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="32dp"
+            android:hint="İsminiz"
+            android:text="@={RegisterViewModel.kayitIsim}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/kayitSoyisim"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:hint="Soy İsminiz"
+            android:text="@={RegisterViewModel.kayitSoyisim}"
+            app:layout_constraintEnd_toEndOf="@+id/kayitIsim"
+            app:layout_constraintStart_toStartOf="@+id/kayitIsim"
+            app:layout_constraintTop_toBottomOf="@+id/kayitIsim" />
+
+        <EditText
+            android:id="@+id/kayitKullaniciAdi"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:hint="Kullanıcı Adınızı"
+            android:text="@={RegisterViewModel.kayitKullaniciAdi}"
+            app:layout_constraintEnd_toEndOf="@+id/kayitSoyisim"
+            app:layout_constraintStart_toStartOf="@+id/kayitSoyisim"
+            app:layout_constraintTop_toBottomOf="@+id/kayitSoyisim" />
+
+        <EditText
+            android:id="@+id/kayitSifre"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:hint="Şifreniz"
+            android:inputType="textPassword"
+            android:text="@={RegisterViewModel.kayitSifre}"
+            app:layout_constraintEnd_toEndOf="@+id/kayitKullaniciAdi"
+            app:layout_constraintStart_toStartOf="@+id/kayitKullaniciAdi"
+            app:layout_constraintTop_toBottomOf="@+id/kayitKullaniciAdi" />
+
+        <EditText
+            android:id="@+id/kayitMail"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:hint="Mail Adresiniz"
+            android:inputType="textEmailAddress"
+            android:text="@={RegisterViewModel.kayitMail}"
+            app:layout_constraintEnd_toEndOf="@+id/kayitSifre"
+            app:layout_constraintStart_toStartOf="@+id/kayitSifre"
+            app:layout_constraintTop_toBottomOf="@+id/kayitSifre" />
+
+        <EditText
+            android:id="@+id/kayitTelefon"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:hint="Telefon Numaranız"
+            android:inputType="phone"
+            android:text="@={RegisterViewModel.kayitTelefon}"
+            app:layout_constraintEnd_toEndOf="@+id/kayitMail"
+            app:layout_constraintStart_toStartOf="@+id/kayitMail"
+            app:layout_constraintTop_toBottomOf="@+id/kayitMail" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/kayitOlButon"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="56dp"
+            android:onClick="@{() -> RegisterViewModel.onClick()}"
+            android:text="Kayıt Ol"
+            app:cornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/kayitTelefon"
+            app:layout_constraintStart_toStartOf="@+id/kayitTelefon" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
