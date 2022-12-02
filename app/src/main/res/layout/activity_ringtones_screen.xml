@@ -118,6 +118,7 @@
             android:gravity="end"
             android:textStyle="bold"
             android:text="Tüm ücretli sesleri görmek için tıklayın"
+            android:onClick="@{() -> AllRingtonesViewModel.ucretliSayfaClick()}"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/anaSayfaUcretliRecyclerView"

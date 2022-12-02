@@ -10,6 +10,7 @@ import com.example.naturing.R
 import com.example.naturing.data.remote.RetrofitFactory
 import com.example.naturing.data.repository.LoginRepository
 import com.example.naturing.databinding.ActivityMainBinding
+import com.example.naturing.utilities.BaseUrl
 import com.example.naturing.viewmodels.LoginViewModel
 
 //android:dataExtractionRules="@xml/data_extraction_rules"
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         LoginRepository(RetrofitFactory.service)
     }
 
+
     private val viewModel: LoginViewModel by lazy {
         val factory = LoginViewModel.Factory(repository = repository)
         ViewModelProvider(this,factory).get(LoginViewModel::class.java)
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.setLifecycleOwner(this)

@@ -94,7 +94,14 @@ class RingtonesScreenActivity : AppCompatActivity() {
             if(!it.equals("")){
                 viewModel.onClick()
             }
-        }//listener2,
+        }
+        viewModel.returnRingsDowloandUrl().observe(this){
+            if(!it.equals("")){
+                viewModel.onClickIndir(applicationContext)
+            }
+        }
+
+        //listener2,
         mDeveloper_CustomAdapter2 = PremiumAdapterHomePage(viewModel)
         mDeveloper_CustomAdapter = FreeAdapterHomePage(viewModel)
         //mDeveloper_CustomAdapter = MainAdapter()
@@ -108,6 +115,14 @@ class RingtonesScreenActivity : AppCompatActivity() {
         viewModel.ucretsizClickReturn().observe(this){ response->
             if(response.equals("1")) {
                 val intent = Intent(this, FreeAllRingtonesActivity::class.java)
+
+                startActivity(intent)
+            }
+
+        }
+        viewModel.ucreliClickReturn().observe(this){ response->
+            if(response.equals("1")) {
+                val intent = Intent(this, PremiumAllRingtonesActivity::class.java)
 
                 startActivity(intent)
             }

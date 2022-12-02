@@ -6,13 +6,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-   <!--<data>
+    <!--<data>
 
-        <variable
-            name="ringViewModel"
-            type="com.example.naturing.viewmodels.AllRingtonesViewModel" />
+         <variable
+             name="ringViewModel"
+             type="com.example.naturing.viewmodels.AllRingtonesViewModel" />
 
-    </data>-->
+     </data>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,18 +30,20 @@
                 android:layout_height="wrap_content">
                 <!--android:text="@{ringModel.s_id}"-->
                 <!--android:text="@{ringModel.s_adi}"-->
+
                 <TextView
-                    android:id="@+id/s_id"
+                    android:id="@+id/s_fiyat"
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
+
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="12dp"
                     android:layout_marginBottom="8dp"
-
                     android:textSize="10sp"
                     bind:layout_constraintBottom_toBottomOf="parent"
                     bind:layout_constraintEnd_toStartOf="@+id/s_adi"
+                    bind:layout_constraintHorizontal_bias="0.5"
                     bind:layout_constraintStart_toStartOf="parent"
                     bind:layout_constraintTop_toTopOf="parent"
                     tools:text="demo" />
@@ -50,12 +52,14 @@
                     android:id="@+id/s_adi"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
                     android:textSize="10sp"
                     bind:layout_constraintBottom_toBottomOf="parent"
                     bind:layout_constraintEnd_toStartOf="@+id/playButtonSatir"
-                    bind:layout_constraintStart_toEndOf="@+id/s_id"
+                    bind:layout_constraintHorizontal_bias="0.5"
+                    bind:layout_constraintStart_toEndOf="@+id/s_fiyat"
                     bind:layout_constraintTop_toTopOf="parent"
                     tools:text="demo2" />
 
@@ -63,10 +67,23 @@
                     android:id="@+id/playButtonSatir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/row_play_button"
+                    bind:layout_constraintBottom_toBottomOf="parent"
+                    bind:layout_constraintEnd_toStartOf="@+id/buyButtonSatirPremium"
+                    bind:layout_constraintStart_toEndOf="@+id/s_adi"
+                    bind:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/buyButtonSatirPremium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/row_buy_button"
                     bind:layout_constraintBottom_toBottomOf="parent"
                     bind:layout_constraintEnd_toEndOf="parent"
                     bind:layout_constraintTop_toTopOf="parent" />

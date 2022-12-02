@@ -8,7 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naturing.R
 import com.example.naturing.data.entities.AllRingtonesResponseModel
-import com.example.naturing.databinding.AdapterRowBinding
+import com.example.naturing.databinding.AdapterFreeRowBinding
+import com.example.naturing.databinding.AdapterPremiumRowBinding
+
+
 import com.example.naturing.viewmodels.AllRingtonesViewModel
 //private val listener: CustomViewHolderListener,
 class PremiumAdapterHomePage (viewModel: AllRingtonesViewModel): RecyclerView.Adapter<PremiumAdapterHomePage.DeveloperViewHolder>() {
@@ -22,9 +25,9 @@ class PremiumAdapterHomePage (viewModel: AllRingtonesViewModel): RecyclerView.Ad
     }*/
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): DeveloperViewHolder {
-        val premiumRingtonesListItemBinding = DataBindingUtil.inflate<AdapterRowBinding>(
+        val premiumRingtonesListItemBinding = DataBindingUtil.inflate<AdapterPremiumRowBinding>(
             LayoutInflater.from(viewGroup.context),
-            R.layout.adapter_row, viewGroup, false
+            R.layout.adapter_premium_row, viewGroup, false
         )
 
 
@@ -35,7 +38,7 @@ class PremiumAdapterHomePage (viewModel: AllRingtonesViewModel): RecyclerView.Ad
         mDeveloperViewHolder.setIsRecyclable(false)
         val currentPremiumMusic = premiumRingtonesAdapterList!![i]
 
-        mDeveloperViewHolder.premiumRingtonesListItemBinding.sId.text = currentPremiumMusic.s_id
+        mDeveloperViewHolder.premiumRingtonesListItemBinding.sFiyat.text = currentPremiumMusic.s_fiyat
         mDeveloperViewHolder.premiumRingtonesListItemBinding.sAdi.text = currentPremiumMusic.s_adi
 
         mDeveloperViewHolder.premiumRingtonesListItemBinding.playButtonSatir.setOnClickListener(View.OnClickListener {
@@ -68,7 +71,7 @@ class PremiumAdapterHomePage (viewModel: AllRingtonesViewModel): RecyclerView.Ad
         Log.e("denem1111",mDeveloperModel.toString())
     }
 
-    inner class DeveloperViewHolder(var premiumRingtonesListItemBinding: AdapterRowBinding) :
+    inner class DeveloperViewHolder(var premiumRingtonesListItemBinding: AdapterPremiumRowBinding) :
         RecyclerView.ViewHolder(premiumRingtonesListItemBinding.root)
 }
 

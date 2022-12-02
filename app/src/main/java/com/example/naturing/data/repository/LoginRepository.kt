@@ -3,6 +3,7 @@ package com.example.naturing.data.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.naturing.data.entities.LoginResponseModel
+import com.example.naturing.data.entities.Ids
 import com.example.naturing.data.remote.ApiService
 import kotlinx.coroutines.delay
 import retrofit2.Response
@@ -20,7 +21,12 @@ class LoginRepository(val apiService: ApiService){
         if (call.isSuccessful) {
             loginResultFromAPI.postValue(call.body())
             delay(1700)
-            if (loginResultFromAPI.value!!.result.equals("Giris basarili")) {
+            //loginResultFromAPI.value!!.result.equals("Giris basarili"
+
+            if (loginResultFromAPI.value!!.result.subSequence(0,14).equals("Giris basarili")) {
+                val id = loginResultFromAPI.value!!.result.subSequence(15, loginResultFromAPI.value!!.result.length)
+                //kullanici id API resulttan alınıyor
+                Ids.user_id = id.toString()
                 resultLogin.postValue("Tebrikler")
             } else {
                 resultLogin.postValue("olmadi")

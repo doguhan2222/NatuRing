@@ -1,7 +1,11 @@
 package com.example.naturing.viewmodels
 
+import android.app.DownloadManager
+import android.content.Context
 import android.media.AudioManager
 import android.media.MediaPlayer
+import android.net.Uri
+import android.os.Environment
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.naturing.data.entities.AllRingtonesResponseModel
@@ -11,8 +15,13 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
 
 
     var ucretsizAllSayfaDurumu: MutableLiveData<String> = MutableLiveData<String>()
+    var ucretliAllSayfaDurumu: MutableLiveData<String> = MutableLiveData<String>()
 
     var listeTiklananMuzikURLAnasayfa = MutableLiveData<String>()
+
+    //indirmek için
+    var listeTiklananMuzikURLUcretsizAnasayfaIndir = MutableLiveData<String>()
+
 
     val allDeveloper: MutableLiveData<MutableList<AllRingtonesResponseModel>>
         get() = ringtonesRepository.getAllRingtones()
@@ -24,6 +33,17 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
         return listeTiklananMuzikURLAnasayfa
     }
 
+    fun returnRingsDowloandUrl(): MutableLiveData<String> {
+        return listeTiklananMuzikURLUcretsizAnasayfaIndir
+    }
+
+    fun ucretliSayfaClick(){
+        ucretliAllSayfaDurumu.postValue("1")
+    }
+    fun ucreliClickReturn():LiveData<String>{
+
+        return ucretliAllSayfaDurumu
+    }
 
     fun ucretsizSayfaClick(){
         ucretsizAllSayfaDurumu.postValue("1")
@@ -33,6 +53,20 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
         return ucretsizAllSayfaDurumu
     }
 
+    fun onClickIndir(context: Context){
+        val downloadmanager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+        val uri: Uri = Uri.parse(listeTiklananMuzikURLUcretsizAnasayfaIndir.value.toString())
+
+        val request = DownloadManager.Request(uri)
+        request.setTitle("Ringtone")
+        request.setDescription("Downloading")
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "ringtone.mp3");
+        request.setVisibleInDownloadsUi(false)
+
+
+        downloadmanager!!.enqueue(request)
+    }
 
     var caliyor:Boolean = false
 

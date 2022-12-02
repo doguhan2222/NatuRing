@@ -66,6 +66,11 @@ class FreeAllRingtonesActivity : AppCompatActivity() {
                 viewModel.onClick()
             }
         }
+        viewModel.returnRingsDowloandUrl().observe(this){
+            if(!it.equals("")){
+                viewModel.onClickIndir(applicationContext)
+            }
+        }
         //listener,
         ucretsizTamListeAdapter = FreeAllAdapter(viewModel)
 

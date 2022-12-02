@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naturing.R
 import com.example.naturing.data.entities.AllRingtonesResponseModel
-import com.example.naturing.databinding.AdapterRowBinding
+import com.example.naturing.databinding.AdapterFreeRowBinding
 import com.example.naturing.viewmodels.FreeRingtonesViewModel
 
 //private val listener: CustomViewHolderListener,
@@ -23,9 +23,9 @@ class FreeAllAdapter (viewModel: FreeRingtonesViewModel): RecyclerView.Adapter<F
     }*/
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): DeveloperViewHolder {
-        val allFreeRingtonesListItemBinding = DataBindingUtil.inflate<AdapterRowBinding>(
+        val allFreeRingtonesListItemBinding = DataBindingUtil.inflate<AdapterFreeRowBinding>(
             LayoutInflater.from(viewGroup.context),
-            R.layout.adapter_row, viewGroup, false
+            R.layout.adapter_free_row, viewGroup, false
         )
 
         return DeveloperViewHolder(allFreeRingtonesListItemBinding)
@@ -34,7 +34,7 @@ class FreeAllAdapter (viewModel: FreeRingtonesViewModel): RecyclerView.Adapter<F
     override fun onBindViewHolder(mDeveloperViewHolder: DeveloperViewHolder, i: Int) {
         val currentAllFreeRingtones = allFreeRingtonesAdapterList!![i]
 
-        mDeveloperViewHolder.allFreeRingtonesListItemBinding.sId.text = currentAllFreeRingtones.s_id
+        mDeveloperViewHolder.allFreeRingtonesListItemBinding.sFiyat.text = currentAllFreeRingtones.s_fiyat
         mDeveloperViewHolder.allFreeRingtonesListItemBinding.sAdi.text = currentAllFreeRingtones.s_adi
 
         mDeveloperViewHolder.allFreeRingtonesListItemBinding.playButtonSatir.setOnClickListener(View.OnClickListener {
@@ -43,6 +43,11 @@ class FreeAllAdapter (viewModel: FreeRingtonesViewModel): RecyclerView.Adapter<F
             var audioUrl = "http://www.doguhanay.fun/sesler/"+allFreeRingtonesAdapterList!!.get(i).s_yolu
             viewModel.listeTiklananMuzikURLUcretsizTamliste.postValue(audioUrl)
         })
+        mDeveloperViewHolder.allFreeRingtonesListItemBinding.dowloandButtonSatirFree.setOnClickListener(View.OnClickListener {
+            var audioUrlIndir = "http://www.doguhanay.fun/sesler/"+allFreeRingtonesAdapterList!!.get(i).s_yolu
+            viewModel.listeTiklananMuzikURLUcretsizAnasayfaIndir.postValue((audioUrlIndir))
+        })
+
       /*  mDeveloperViewHolder.itemView.setOnClickListener(View.OnClickListener {
             Log.e("bbb",mDeveloperModel!!.get(i).s_yolu)
             listener.onCustomItemClicked(mDeveloperModel!!.get(i).s_yolu)
@@ -68,6 +73,6 @@ class FreeAllAdapter (viewModel: FreeRingtonesViewModel): RecyclerView.Adapter<F
         Log.e("denem1111",mDeveloperModel.toString())
     }
 
-    inner class DeveloperViewHolder(var allFreeRingtonesListItemBinding: AdapterRowBinding) :
+    inner class DeveloperViewHolder(var allFreeRingtonesListItemBinding: AdapterFreeRowBinding) :
         RecyclerView.ViewHolder(allFreeRingtonesListItemBinding.root)
 }
