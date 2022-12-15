@@ -9,10 +9,20 @@ import android.os.Environment
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.naturing.data.entities.AllRingtonesResponseModel
+import com.example.naturing.data.entities.SearchScreenResponseModel
 import com.example.naturing.data.repository.AllRingtonesRepository
 
 class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): ViewModel(){
 
+
+
+
+    var kitaplikSayfaDurum: MutableLiveData<String> = MutableLiveData<String>()
+
+    var cikisButonDurum: MutableLiveData<String> = MutableLiveData<String>()
+
+    //adapterden geliyor
+    val listeTiklananMuzikId = MutableLiveData<String>()
 
     var ucretsizAllSayfaDurumu: MutableLiveData<String> = MutableLiveData<String>()
     var ucretliAllSayfaDurumu: MutableLiveData<String> = MutableLiveData<String>()
@@ -26,8 +36,33 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
     val allDeveloper: MutableLiveData<MutableList<AllRingtonesResponseModel>>
         get() = ringtonesRepository.getAllRingtones()
 
+
+
+
+
+
+
     var mediaPlayer: MediaPlayer? = null
 
+    fun kitaplikToolbarOnClick(){
+        kitaplikSayfaDurum.postValue("1")
+    }
+    fun kitaplikToolbarOnClickReturn():LiveData<String>{
+
+        return kitaplikSayfaDurum
+    }
+
+    fun exitToolbarOnClick(){
+        cikisButonDurum.postValue("1")
+    }
+    fun exitToolbarOnClickReturn():LiveData<String>{
+
+        return cikisButonDurum
+    }
+
+    fun returnRingPay():MutableLiveData<String>{
+        return listeTiklananMuzikId
+    }
 
     fun returnRings(): MutableLiveData<String> {
         return listeTiklananMuzikURLAnasayfa
@@ -141,6 +176,22 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
                 // on below line we are handling our exception.
                 e.printStackTrace()
             }
+        }
+
+    }
+    fun stopPlaySong(){
+        if(caliyor ==true && mediaPlayer != null){
+
+            mediaPlayer!!.stop()
+
+            // on below line we are resetting
+            // our media player.
+            mediaPlayer!!.reset()
+
+            // on below line we are calling
+            // release to release our media player.
+            mediaPlayer!!.release()
+            mediaPlayer = null
         }
 
     }

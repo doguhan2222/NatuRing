@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
+        android:background="@drawable/background2"
         android:layout_height="match_parent"
         tools:context=".views.RegisterActivity">
 
@@ -60,7 +61,6 @@
             android:layout_height="50dp"
             android:layout_marginTop="32dp"
             android:hint="Şifreniz"
-            android:inputType="textPassword"
             android:text="@={RegisterViewModel.kayitSifre}"
             app:layout_constraintEnd_toEndOf="@+id/kayitKullaniciAdi"
             app:layout_constraintStart_toStartOf="@+id/kayitKullaniciAdi"
@@ -99,6 +99,7 @@
             android:layout_marginBottom="56dp"
             android:onClick="@{() -> RegisterViewModel.onClick()}"
             android:text="Kayıt Ol"
+            android:backgroundTint="@color/black"
             app:cornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/kayitTelefon"

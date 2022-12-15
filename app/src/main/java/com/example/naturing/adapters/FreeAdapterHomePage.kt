@@ -61,7 +61,12 @@ class FreeAdapterHomePage(viewModel: AllRingtonesViewModel): RecyclerView.Adapte
 
     override fun getItemCount(): Int {
         return if (freeRingtonesAdapterList != null) {
-            freeRingtonesAdapterList!!.size
+            if(freeRingtonesAdapterList!!.size >=5){
+                freeRingtonesAdapterList!!.take(5).size
+            }else{
+                freeRingtonesAdapterList!!.size
+            }
+
         } else {
             0
         }

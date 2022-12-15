@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.naturing.R
 import com.example.naturing.data.remote.RetrofitFactory
@@ -36,15 +38,19 @@ class RegisterActivity : AppCompatActivity() {
 
         //RegisterViewModel içindeki fonk. dinler ve değişiklik olduğunda UI'ı günceller.Ayrıca Kayit başarılı ise
         // GirişEkranına geçiş yapar.
+
         viewModel.finalRegisterResult().observe(this){ response ->
-            if(response.equals("Tebrikler kayit oldunuz")){
-                Toast.makeText(this,"OlDU", Toast.LENGTH_LONG)
-                val intent = Intent(this, MainActivity::class.java)
-                // start your next activity
-                startActivity(intent)
-            }else{
-                Toast.makeText(this,"Olmadi", Toast.LENGTH_LONG)
+            if(response != null){
+                if(response.equals("Tebrikler kayit oldunuz")){
+                    Toast.makeText(this,"Tebrikler kayit oldunuz", Toast.LENGTH_SHORT)
+                    val intent = Intent(this, MainActivity::class.java)
+                    // start your next activity
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this,"Kayıt Olunamadı", Toast.LENGTH_LONG)
+                }
             }
+
 
         }
 

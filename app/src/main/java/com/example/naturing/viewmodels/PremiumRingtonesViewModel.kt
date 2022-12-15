@@ -12,6 +12,7 @@ import com.example.naturing.data.repository.PremiumRingtonesRepository
 class PremiumRingtonesViewModel (var ringtonesPremiumRingtonesRepository: PremiumRingtonesRepository): ViewModel(){
 
 
+    val listeTiklananMuzikId = MutableLiveData<String>()
     //Adapterden geliyor
     var listeTiklananMuzikURLUcretliTamliste = MutableLiveData<String>()
 
@@ -23,6 +24,9 @@ class PremiumRingtonesViewModel (var ringtonesPremiumRingtonesRepository: Premiu
 
     fun returnRings(): MutableLiveData<String> {
         return listeTiklananMuzikURLUcretliTamliste
+    }
+    fun returnRingPay():MutableLiveData<String>{
+        return listeTiklananMuzikId
     }
 
     var caliyor:Boolean = false
@@ -98,6 +102,21 @@ class PremiumRingtonesViewModel (var ringtonesPremiumRingtonesRepository: Premiu
                 // on below line we are handling our exception.
                 e.printStackTrace()
             }
+        }
+
+    }
+    fun stopPlaySong(){
+        if(caliyor ==true && mediaPlayer != null){
+            mediaPlayer!!.stop()
+
+            // on below line we are resetting
+            // our media player.
+            mediaPlayer!!.reset()
+
+            // on below line we are calling
+            // release to release our media player.
+            mediaPlayer!!.release()
+            mediaPlayer = null
         }
 
     }

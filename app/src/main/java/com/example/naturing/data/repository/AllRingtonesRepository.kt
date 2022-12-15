@@ -3,6 +3,7 @@ package com.example.naturing.data.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.naturing.data.entities.AllRingtonesResponseModel
+import com.example.naturing.data.entities.SearchScreenResponseModel
 import com.example.naturing.data.remote.ApiService
 import retrofit2.Call
 import retrofit2.Callback
@@ -11,6 +12,10 @@ import retrofit2.Response
 class AllRingtonesRepository(val apiService: ApiService) {
     val allRingtonesResultFromAPI: MutableLiveData<MutableList<AllRingtonesResponseModel>> by lazy {
         MutableLiveData<MutableList<AllRingtonesResponseModel>> ()
+    }
+
+    val searchedAllRingtonesResultFromAPI: MutableLiveData<MutableList<SearchScreenResponseModel>> by lazy {
+        MutableLiveData<MutableList<SearchScreenResponseModel>>()
     }
     //var result: MutableLiveData<String> = MutableLiveData<String>()
 
@@ -38,8 +43,6 @@ class AllRingtonesRepository(val apiService: ApiService) {
             })
         return allRingtonesResultFromAPI
     }
-
-
 
 
 

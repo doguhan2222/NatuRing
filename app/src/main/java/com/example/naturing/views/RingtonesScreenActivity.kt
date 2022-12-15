@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -53,6 +55,21 @@ class RingtonesScreenActivity : AppCompatActivity() {
         recyclerView2.layoutManager=LinearLayoutManager(this)
         recyclerView2!!.setHasFixedSize(true)
 
+        // Burası arama ikonuna tıklanınca yapılacak işler için
+        binding.ringtoneSearch.setEndIconOnClickListener(View.OnClickListener {
+            if(!binding.ringtoneSearchBar.text!!.isEmpty()){
+                val intent = Intent(this, SearchScreenActivity::class.java)
+                intent.putExtra("search_ring",binding.ringtoneSearchBar.text.toString())
+                binding.ringtoneSearchBar.setText("")
+                startActivity(intent)
+            }else{
+                Toast.makeText(this,"Lütfen bir kelime girin",Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
+
+
 
        /* val listener = object: MainAdapter.CustomViewHolderListener {
             override fun onCustomItemClicked(x: String) {}
@@ -100,6 +117,28 @@ class RingtonesScreenActivity : AppCompatActivity() {
                 viewModel.onClickIndir(applicationContext)
             }
         }
+        viewModel.returnRingPay().observe(this){
+            if(!it.equals("")){
+                val intent = Intent(this, PayScreenActivity::class.java)
+                intent.putExtra("ring_id",it)
+                startActivity(intent)
+            }
+        }
+
+        viewModel.kitaplikToolbarOnClickReturn().observe(this){
+            if(it.equals("1")){
+                val intent = Intent(this, LibraryActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        viewModel.exitToolbarOnClickReturn().observe(this){
+            if(it.equals("1")){
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
 
         //listener2,
         mDeveloper_CustomAdapter2 = PremiumAdapterHomePage(viewModel)
@@ -130,6 +169,26 @@ class RingtonesScreenActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onPause() {
+        viewModel.stopPlaySong()
+        super.onPause()
+
+    }
+
+    override fun onDestroy() {
+        viewModel.stopPlaySong()
+        super.onDestroy()
+
+    }
+
+    override fun onStop() {
+        viewModel.stopPlaySong()
+        super.onStop()
+
+
+    }
+
 
    /* private fun getAllDev() {
         ///get the list of dev from api response

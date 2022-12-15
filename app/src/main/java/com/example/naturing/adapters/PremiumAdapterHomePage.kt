@@ -46,6 +46,9 @@ class PremiumAdapterHomePage (viewModel: AllRingtonesViewModel): RecyclerView.Ad
             var audioUrl = "http://www.doguhanay.fun/sesler/"+premiumRingtonesAdapterList!!.get(i).s_yolu
             viewModel.listeTiklananMuzikURLAnasayfa.postValue(audioUrl)
         })
+        mDeveloperViewHolder.premiumRingtonesListItemBinding.buyButtonSatirPremium.setOnClickListener(View.OnClickListener {
+                viewModel.listeTiklananMuzikId.postValue(premiumRingtonesAdapterList!!.get(i).s_id)
+            })
        /* mDeveloperViewHolder.itemView.setOnClickListener(View.OnClickListener {
             Log.e("bbb",mDeveloperModel!!.get(i).s_yolu)
             listener.onCustomItemClicked(mDeveloperModel!!.get(i).s_yolu)
@@ -57,7 +60,11 @@ class PremiumAdapterHomePage (viewModel: AllRingtonesViewModel): RecyclerView.Ad
 
     override fun getItemCount(): Int {
         return if (premiumRingtonesAdapterList != null) {
-            premiumRingtonesAdapterList!!.size
+            if(premiumRingtonesAdapterList!!.size >=5){
+                premiumRingtonesAdapterList!!.take(5).size
+            }else{
+                premiumRingtonesAdapterList!!.size
+            }
         } else {
             0
         }

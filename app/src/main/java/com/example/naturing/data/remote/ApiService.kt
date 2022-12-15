@@ -1,8 +1,6 @@
 package com.example.naturing.data.remote
 
-import com.example.naturing.data.entities.AllRingtonesResponseModel
-import com.example.naturing.data.entities.LoginResponseModel
-import com.example.naturing.data.entities.RegisterResponseModel
+import com.example.naturing.data.entities.*
 import com.example.naturing.utilities.BaseUrl
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -30,8 +28,17 @@ interface ApiService {
     @GET("/natu_ring_ana_sayfa.php")
     fun allRingtones(): Call<MutableList<AllRingtonesResponseModel>>
 
-    @GET("/natu_ring_ucretsiz_sayfa.php")
-    fun allFreeRingtones(): Call<MutableList<AllRingtonesResponseModel>>
+    @FormUrlEncoded
+    @POST("/natu_ring_pay.php")
+    fun pay(@Field("kullaniciId") userId:String, @Field("ringId") ringtoneId:String): Call<PayResponseModel>
+
+    @FormUrlEncoded
+    @POST("/natu_ring_kitaplik.php")
+    fun kitaplik(@Field("userID") userId:String): Call<MutableList<LibraryResponseModel>>
+
+    @FormUrlEncoded
+    @POST("/natu_ring_search.php")
+    fun searchRing(@Field("ringName") ringName:String): Call<MutableList<SearchScreenResponseModel>>
 }
 
 

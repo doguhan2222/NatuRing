@@ -78,6 +78,20 @@ class FreeAllRingtonesActivity : AppCompatActivity() {
 
 
     }
+    override fun onPause() {
+        super.onPause()
+        viewModel.stopPlaySong()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.stopPlaySong()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.stopPlaySong()
+    }
 
 
 }

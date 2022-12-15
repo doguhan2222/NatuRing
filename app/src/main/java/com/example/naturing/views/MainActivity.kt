@@ -41,14 +41,21 @@ class MainActivity : AppCompatActivity() {
 
         //LoginViewNModel içindeki fonk. dinler ve değişiklik olduğunda UI'ı günceller.Ayrıca Kayit başarılı ise
         viewModel.finalResult().observe(this){ response ->
-            if(response.equals("Tebrikler")){
-                binding.resultxml.setText("Tebrikler")
-                val intent = Intent(this, RingtonesScreenActivity::class.java)
-                // start your next activity
-                startActivity(intent)
-            }else{
-                binding.resultxml.setText("olmadi")
+            if(response !=null){
+                if(response.equals("Tebrikler")){
+                    Toast.makeText(this,"Giriş Yapılıyor",Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, RingtonesScreenActivity::class.java)
+                    /*binding.resultxml.setText("Tebrikler")
+                    val intent = Intent(this, RingtonesScreenActivity::class.java)
+                    // start your next activity
+                    //viewModel.result.postValue("")*/
+                    startActivity(intent)
+                    finish()
+                }else{
+                    Toast.makeText(this,"Giriş Yapılamadı",Toast.LENGTH_SHORT).show()
+                }
             }
+
 
         }
         viewModel.sayfaDurum().observe(this){ response ->

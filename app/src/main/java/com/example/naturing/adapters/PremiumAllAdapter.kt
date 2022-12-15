@@ -42,6 +42,9 @@ class PremiumAllAdapter (viewModel: PremiumRingtonesViewModel): RecyclerView.Ada
             var audioUrl = "http://www.doguhanay.fun/sesler/"+allPremiumRingtonesAdapterList!!.get(i).s_yolu
             viewModel.listeTiklananMuzikURLUcretliTamliste.postValue(audioUrl)
         })
+        mDeveloperViewHolder.allPremiumRingtonesListItemBinding.buyButtonSatirPremium.setOnClickListener(View.OnClickListener {
+            viewModel.listeTiklananMuzikId.postValue(allPremiumRingtonesAdapterList!!.get(i).s_id)
+        })
 
         /*  mDeveloperViewHolder.itemView.setOnClickListener(View.OnClickListener {
               Log.e("bbb",mDeveloperModel!!.get(i).s_yolu)

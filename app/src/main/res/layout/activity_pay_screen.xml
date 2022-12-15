@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="PayScreenViewModel"
+            type="com.example.naturing.viewmodels.PayScreenViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.MainActivity">
+
+        <TextView
+            android:id="@+id/odemeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Ödeme Ekranı"
+            android:textColor="#150050"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/kartSahibi"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
+            android:hint="Kart Sahibi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/odemeText" />
+
+        <EditText
+            android:id="@+id/kartNumarasi"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="25dp"
+            android:hint="Kart Numarası"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/kartSahibi"
+            app:layout_constraintStart_toStartOf="@+id/kartSahibi"
+            app:layout_constraintTop_toBottomOf="@+id/kartSahibi" />
+
+        <EditText
+            android:id="@+id/kartTarihi"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="25dp"
+            android:hint="Son kullanma tarihi"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="@+id/kartNumarasi"
+            app:layout_constraintStart_toStartOf="@+id/kartNumarasi"
+            app:layout_constraintTop_toBottomOf="@+id/kartNumarasi" />
+
+        <EditText
+            android:id="@+id/kartKodu"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="25dp"
+            android:hint="CVV"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/kartTarihi"
+            app:layout_constraintStart_toStartOf="@+id/kartTarihi"
+            app:layout_constraintTop_toBottomOf="@+id/kartTarihi" />
+
+
+        <Button
+            android:id="@+id/girisYap"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="70dp"
+            android:onClick="@{() -> PayScreenViewModel.payClickFonk()}"
+            android:text="Ödeme Yap"
+            app:layout_constraintEnd_toEndOf="@+id/kartKodu"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/kartKodu"
+            app:layout_constraintTop_toBottomOf="@+id/kartKodu" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,5 +1,6 @@
 package com.example.naturing.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -72,7 +73,28 @@ class PremiumAllRingtonesActivity : AppCompatActivity()  {
 
         ucretliTamListeRecyclerView.setAdapter(ucretliTamListeAdapter)
 
+        viewModel.returnRingPay().observe(this){
+            if(!it.equals("")){
+                val intent = Intent(this, PayScreenActivity::class.java)
+                intent.putExtra("ring_id",it)
+                startActivity(intent)
+            }
+        }
 
+    }
+    override fun onPause() {
+        super.onPause()
+        viewModel.stopPlaySong()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.stopPlaySong()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.stopPlaySong()
     }
 
 

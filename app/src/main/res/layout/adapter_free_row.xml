@@ -31,6 +31,18 @@
                 <!--android:text="@{ringModel.s_id}"-->
                 <!--android:text="@{ringModel.s_adi}"-->
                 <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Fiyat"
+                    android:textColor="#FB2576"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    bind:layout_constraintStart_toStartOf="parent"
+                    bind:layout_constraintTop_toTopOf="parent" />
+                <TextView
                     android:id="@+id/s_fiyat"
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
@@ -38,45 +50,63 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="8dp"
-
-                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
                     bind:layout_constraintBottom_toBottomOf="parent"
                     bind:layout_constraintEnd_toStartOf="@+id/s_adi"
+                    bind:layout_constraintHorizontal_bias="0.5"
                     bind:layout_constraintStart_toStartOf="parent"
-                    bind:layout_constraintTop_toTopOf="parent"
+                    bind:layout_constraintTop_toBottomOf="@+id/textView"
                     tools:text="demo" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:text="Şarkı İsmi"
+                    android:textColor="#FB2576"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    bind:layout_constraintEnd_toEndOf="@+id/s_adi"
+                    bind:layout_constraintStart_toEndOf="@+id/textView"
+                    bind:layout_constraintTop_toTopOf="@+id/textView" />
 
                 <TextView
                     android:id="@+id/s_adi"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
                     bind:layout_constraintBottom_toBottomOf="parent"
                     bind:layout_constraintEnd_toStartOf="@+id/playButtonSatir"
+                    bind:layout_constraintHorizontal_bias="0.5"
                     bind:layout_constraintStart_toEndOf="@+id/s_fiyat"
-                    bind:layout_constraintTop_toTopOf="parent"
+                    bind:layout_constraintTop_toBottomOf="@+id/textView2"
                     tools:text="demo2" />
 
                 <ImageView
                     android:id="@+id/playButtonSatir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/row_play_button"
                     bind:layout_constraintBottom_toBottomOf="parent"
                     bind:layout_constraintEnd_toStartOf="@+id/dowloandButtonSatirFree"
                     bind:layout_constraintTop_toTopOf="parent"
-                    bind:layout_constraintVertical_bias="1.0" />
+                    bind:layout_constraintVertical_bias="0.454" />
 
                 <ImageView
                     android:id="@+id/dowloandButtonSatirFree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/row_dowloand_button"
                     bind:layout_constraintBottom_toBottomOf="parent"

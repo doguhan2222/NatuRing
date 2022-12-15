@@ -136,6 +136,22 @@ class FreeRingtonesViewModel (var ringtonesFreeRepository: FreeRingtonesReposito
         }
 
     }
+    fun stopPlaySong(){
+        if(caliyor ==true && mediaPlayer != null){
+            mediaPlayer!!.stop()
+
+            // on below line we are resetting
+            // our media player.
+            mediaPlayer!!.reset()
+
+            // on below line we are calling
+            // release to release our media player.
+            mediaPlayer!!.release()
+            mediaPlayer = null
+        }
+
+    }
+
 
     @Suppress("UNCHECKED_CAST")
     class Factory(private val repository: FreeRingtonesRepository) : ViewModelProvider.Factory {
