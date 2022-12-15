@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">NatuRing</string>
+    <string name="app_name">Natu Ring</string>
+    <string name="fiyat">Price</string>
+    <string name="sarki_ismi">Ringtone Name</string>
+    <string name="ucretsiz_sesler">Free Ringtones</string>
+    <string name="ucretli_sesler">Premium Ringtones</string>
+    <string name="tum_ucretsiz">Click To See All Free Ringtones</string>
+    <string name="tum_ucretli">Click To See All Premium Ringtones</string>
+    <string name="kitaplik">Library</string>
+    <string name="ad">Name</string>
+    <string name="soyad">Surname</string>
+    <string name="kullanici_adi">Username</string>
+    <string name="sifre">Password</string>
+    <string name="mail">E-mail</string>
+    <string name="telefon">Phone Number</string>
+    <string name="kayit_ol">Regıster</string>
+    <string name="ucretli_hepsi">All Premium Ringtones</string>
+    <string name="ucretsiz_hepsi">All Free Ringtones</string>
+    <string name="odeme_ekrani">Payment Screen</string>
+    <string name="kart_sahibi">Card Owner</string>
+    <string name="kart_numarasi">Card Number</string>
+    <string name="son_tarih">Expiration Date</string>
+    <string name="cvv">CVV</string>
+    <string name="odeme_yap">Pay</string>
+    <string name="kayit_olmak">Click To Register</string>
+    <string name="giris_yap">Logın</string>
+    <string name="kitapik_sesler">Sounds In Your Library</string>
 </resources>

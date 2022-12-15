@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Kitaplığınızdaki Sesler"
+            android:text="@string/kitapik_sesler"
             android:textColor="#150050"
             android:textSize="25sp"
             android:textStyle="bold"
