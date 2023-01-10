@@ -40,12 +40,8 @@ class PremiumRingtonesViewModel (var ringtonesPremiumRingtonesRepository: Premiu
             //mediaPlayer = MediaPlayer()
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
             mediaPlayer!!.release()
             mediaPlayer =null
 
@@ -56,16 +52,12 @@ class PremiumRingtonesViewModel (var ringtonesPremiumRingtonesRepository: Premiu
 
                     mediaPlayer = MediaPlayer()
                     mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLUcretliTamliste.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
+
                     mediaPlayer!!.start()
                     caliyor = true
 
@@ -73,7 +65,7 @@ class PremiumRingtonesViewModel (var ringtonesPremiumRingtonesRepository: Premiu
 
             } catch (e: Exception) {
 
-                // on below line we are handling our exception.
+
                 e.printStackTrace()
             }
 
@@ -82,16 +74,11 @@ class PremiumRingtonesViewModel (var ringtonesPremiumRingtonesRepository: Premiu
             mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
             try {
                 if(!listeTiklananMuzikURLUcretliTamliste.equals("")){
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLUcretliTamliste.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
                     mediaPlayer!!.start()
 
                     caliyor = true
@@ -99,7 +86,7 @@ class PremiumRingtonesViewModel (var ringtonesPremiumRingtonesRepository: Premiu
 
             } catch (e: Exception) {
 
-                // on below line we are handling our exception.
+
                 e.printStackTrace()
             }
         }
@@ -109,12 +96,9 @@ class PremiumRingtonesViewModel (var ringtonesPremiumRingtonesRepository: Premiu
         if(caliyor ==true && mediaPlayer != null){
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
+
             mediaPlayer!!.release()
             mediaPlayer = null
         }

@@ -68,21 +68,10 @@ class RingtonesScreenActivity : AppCompatActivity() {
 
         })
 
-
-
-
-       /* val listener = object: MainAdapter.CustomViewHolderListener {
-            override fun onCustomItemClicked(x: String) {}
-
-        }
-        val listener2 = object: MainAdapter2.CustomViewHolderListener {
-            override fun onCustomItemClicked(x: String) {}
-
-        }*/
         var bb = mutableListOf<AllRingtonesResponseModel>()
         var cc = mutableListOf<AllRingtonesResponseModel>()
         viewModel.allDeveloper.observe(this) { mDeveloperModel ->
-            ///if any thing chnage the update the UI
+
             Log.e("aaaaa", mDeveloperModel.toString())
            // mDeveloper_CustomAdapter?.setDeveloperList(mDeveloperModel as MutableList<AllRingtonesResponseModel>)
             for (x in mDeveloperModel){
@@ -96,7 +85,7 @@ class RingtonesScreenActivity : AppCompatActivity() {
 
         }
         viewModel.allDeveloper.observe(this) { mDeveloperModel ->
-            ///if any thing chnage the update the UI
+
             Log.e("aaaaa", mDeveloperModel.toString())
             for (x in mDeveloperModel){
                 if(x.s_premiumDurum =="1"){

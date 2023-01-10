@@ -107,19 +107,14 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
 
     fun onClick(){
 
-       Log.e("aaa","müzik basladi")
+       //Log.e("aaa","müzik basladi")
         //mediaPlayer = MediaPlayer()
 
         if(caliyor ==true && mediaPlayer != null){
-            //mediaPlayer = MediaPlayer()
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
             mediaPlayer!!.release()
             mediaPlayer =null
 
@@ -130,16 +125,13 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
 
                     mediaPlayer = MediaPlayer()
                     mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLAnasayfa.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
+
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
+
                     mediaPlayer!!.start()
                     caliyor = true
 
@@ -147,7 +139,7 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
 
             } catch (e: Exception) {
 
-                // on below line we are handling our exception.
+
                 e.printStackTrace()
             }
 
@@ -156,16 +148,12 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
             mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
             try {
                 if(!listeTiklananMuzikURLAnasayfa.equals("")){
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLAnasayfa.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
+
                     mediaPlayer!!.start()
 
                     caliyor = true
@@ -173,7 +161,6 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
 
             } catch (e: Exception) {
 
-                // on below line we are handling our exception.
                 e.printStackTrace()
             }
         }
@@ -184,12 +171,8 @@ class AllRingtonesViewModel (var ringtonesRepository: AllRingtonesRepository): V
 
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
             mediaPlayer!!.release()
             mediaPlayer = null
         }

@@ -66,12 +66,9 @@ class LibraryViewModel (var libraryRepository: LibraryRepository): ViewModel(){
             //mediaPlayer = MediaPlayer()
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
+
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
             mediaPlayer!!.release()
             mediaPlayer =null
 
@@ -82,16 +79,13 @@ class LibraryViewModel (var libraryRepository: LibraryRepository): ViewModel(){
 
                     mediaPlayer = MediaPlayer()
                     mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLKutuphaneDinle.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
+
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
+
                     mediaPlayer!!.start()
                     caliyor = true
 
@@ -99,7 +93,7 @@ class LibraryViewModel (var libraryRepository: LibraryRepository): ViewModel(){
 
             } catch (e: Exception) {
 
-                // on below line we are handling our exception.
+
                 e.printStackTrace()
             }
 
@@ -108,16 +102,12 @@ class LibraryViewModel (var libraryRepository: LibraryRepository): ViewModel(){
             mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
             try {
                 if(!listeTiklananMuzikURLKutuphaneDinle.equals("")){
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLKutuphaneDinle.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
+
                     mediaPlayer!!.start()
 
                     caliyor = true
@@ -135,12 +125,9 @@ class LibraryViewModel (var libraryRepository: LibraryRepository): ViewModel(){
         if(caliyor ==true && mediaPlayer != null) {
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
+
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
             mediaPlayer!!.release()
             mediaPlayer = null
 

@@ -40,7 +40,7 @@ class SearchScreenPremiumAdapter (viewModel: SearchScreenViewModel): RecyclerVie
 
         mDeveloperViewHolder.searchPremiumRingtonesListItemBinding.playButtonSatir.setOnClickListener(
             View.OnClickListener {
-            //TODO("BUNU YAP BURADA")
+
             Log.e("ddd",searchPremiumRingtonesAdapterList!!.get(i).s_yolu)
             var audioUrl = "http://www.doguhanay.fun/sesler/"+searchPremiumRingtonesAdapterList!!.get(i).s_yolu
             viewModel.listeTiklananMuzikURLSearch.postValue(audioUrl)
@@ -53,7 +53,7 @@ class SearchScreenPremiumAdapter (viewModel: SearchScreenViewModel): RecyclerVie
   */
 
 
-        //TODO("PREMIUM VE FREE ADAPTOR TASARIMINI DUZELT,INDIRME ISLEVI EKLE , ÖDEME SAYFASI YAP VE KITAPLIK EKLE")
+
     }
 
 

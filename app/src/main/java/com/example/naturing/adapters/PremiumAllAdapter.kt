@@ -53,7 +53,6 @@ class PremiumAllAdapter (viewModel: PremiumRingtonesViewModel): RecyclerView.Ada
   */
 
 
-        //TODO("PREMIUM VE FREE ADAPTOR TASARIMINI DUZELT,INDIRME ISLEVI EKLE , ÖDEME SAYFASI YAP VE KITAPLIK EKLE")
     }
 
 

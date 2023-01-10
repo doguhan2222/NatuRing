@@ -99,12 +99,9 @@ class SearchScreenViewModel(var searchScreenRepository: SearchScreenRepository) 
             //mediaPlayer = MediaPlayer()
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
+
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
             mediaPlayer!!.release()
             mediaPlayer = null
 
@@ -115,16 +112,11 @@ class SearchScreenViewModel(var searchScreenRepository: SearchScreenRepository) 
 
                     mediaPlayer = MediaPlayer()
                     mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLSearch.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
                     mediaPlayer!!.start()
                     caliyor = true
 
@@ -132,7 +124,7 @@ class SearchScreenViewModel(var searchScreenRepository: SearchScreenRepository) 
 
             } catch (e: Exception) {
 
-                // on below line we are handling our exception.
+
                 e.printStackTrace()
             }
 
@@ -141,16 +133,13 @@ class SearchScreenViewModel(var searchScreenRepository: SearchScreenRepository) 
             mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
             try {
                 if (!listeTiklananMuzikURLSearch.equals("")) {
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLSearch.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
+
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
+
                     mediaPlayer!!.start()
 
                     caliyor = true
@@ -168,12 +157,9 @@ class SearchScreenViewModel(var searchScreenRepository: SearchScreenRepository) 
         if(caliyor ==true && mediaPlayer != null) {
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
+
             mediaPlayer!!.release()
             mediaPlayer = null
 

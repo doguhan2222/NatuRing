@@ -72,7 +72,7 @@ class SearchScreenActivity : AppCompatActivity() {
 
         Log.e("hahha",viewModel.allSearchedRings.value.toString())
         viewModel.returnSearchRing().observe(this) { mDeveloperModel ->
-            ///if any thing chnage the update the UI
+
             //Log.e("aaaaa", mDeveloperModel.toString())
             Log.e("1233","bbbbbb")
             // mDeveloper_CustomAdapter?.setDeveloperList(mDeveloperModel as MutableList<AllRingtonesResponseModel>)
@@ -92,7 +92,7 @@ class SearchScreenActivity : AppCompatActivity() {
 
         }
         viewModel.returnSearchRing().observe(this) { mDeveloperModel ->
-            ///if any thing chnage the update the UI
+
             //Log.e("aaaaa", mDeveloperModel.toString())
             Log.e("12333","cccccc")
             if (mDeveloperModel != null) {

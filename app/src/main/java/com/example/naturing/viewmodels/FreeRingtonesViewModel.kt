@@ -65,18 +65,14 @@ class FreeRingtonesViewModel (var ringtonesFreeRepository: FreeRingtonesReposito
     fun onClick(){
 
         Log.e("aaa","müzik basladi")
-        //mediaPlayer = MediaPlayer()
 
         if(caliyor ==true && mediaPlayer != null){
-            //mediaPlayer = MediaPlayer()
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
+
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
+
             mediaPlayer!!.release()
             mediaPlayer =null
 
@@ -87,16 +83,13 @@ class FreeRingtonesViewModel (var ringtonesFreeRepository: FreeRingtonesReposito
 
                     mediaPlayer = MediaPlayer()
                     mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLUcretsizTamliste.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
+
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
+
                     mediaPlayer!!.start()
                     caliyor = true
 
@@ -104,7 +97,7 @@ class FreeRingtonesViewModel (var ringtonesFreeRepository: FreeRingtonesReposito
 
             } catch (e: Exception) {
 
-                // on below line we are handling our exception.
+
                 e.printStackTrace()
             }
 
@@ -113,16 +106,13 @@ class FreeRingtonesViewModel (var ringtonesFreeRepository: FreeRingtonesReposito
             mediaPlayer!!.setAudioStreamType(AudioManager.STREAM_MUSIC)
             try {
                 if(!listeTiklananMuzikURLUcretsizTamliste.equals("")){
-                    // on below line we are setting audio
-                    // source as audio url on below line.
+
                     mediaPlayer!!.setDataSource(listeTiklananMuzikURLUcretsizTamliste.value.toString())
 
-                    // on below line we are
-                    // preparing our media player.
+
                     mediaPlayer!!.prepare()
 
-                    // on below line we are
-                    // starting our media player.
+
                     mediaPlayer!!.start()
 
                     caliyor = true
@@ -130,7 +120,7 @@ class FreeRingtonesViewModel (var ringtonesFreeRepository: FreeRingtonesReposito
 
             } catch (e: Exception) {
 
-                // on below line we are handling our exception.
+
                 e.printStackTrace()
             }
         }
@@ -140,12 +130,9 @@ class FreeRingtonesViewModel (var ringtonesFreeRepository: FreeRingtonesReposito
         if(caliyor ==true && mediaPlayer != null){
             mediaPlayer!!.stop()
 
-            // on below line we are resetting
-            // our media player.
             mediaPlayer!!.reset()
 
-            // on below line we are calling
-            // release to release our media player.
+
             mediaPlayer!!.release()
             mediaPlayer = null
         }
